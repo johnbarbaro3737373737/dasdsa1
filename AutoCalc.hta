@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Запуск калькулятора</title>
+<HTA:APPLICATION 
+    ID="AutoCalcLauncher"
+    APPLICATIONNAME="Запуск калькулятора"
+    BORDER="none"
+    BORDERSTYLE="normal"
+    CAPTION="no"
+    SHOWINTASKBAR="no"
+    SINGLEINSTANCE="yes"
+    SYSMENU="no"
+    VERSION="1.0"
+    WINDOWSTATE="minimize"
+/>
+
+<script language="VBScript">
+    ' Функция для запуска калькулятора
+    Sub LaunchCalculator
+        ' Создаем объект WScript.Shell
+        Dim objShell
+        Set objShell = CreateObject("WScript.Shell")
+        
+        ' Запускаем калькулятор
+        objShell.Run "calc.exe", 1, False
+        
+        ' Очищаем объект
+        Set objShell = Nothing
+        
+        ' Закрываем HTA после запуска
+        Self.Close
+    End Sub
+    
+    ' Запуск при загрузке HTA
+    Sub Window_OnLoad
+        LaunchCalculator
+    End Sub
+</script>
+</head>
+
+<body style="margin:0;padding:0;background-color:transparent;">
+<!-- Пустой интерфейс, так как это просто запускает калькулятор и закрывается -->
+</body>
+</html> 
