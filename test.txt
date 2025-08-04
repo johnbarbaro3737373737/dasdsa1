@@ -1,1 +1,1 @@
-wss://127.0.0.1:443/agent.ashx
+wss://localhost:443/agent.ashx
